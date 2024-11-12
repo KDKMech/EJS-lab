@@ -6,7 +6,7 @@ const app = express();
 
 const RESTAURANT = {
     name: 'The Green Byte Bistro',
-    isOpen: true,
+    isOpen: false,
     address: '742 Evergreen Rd, Mapleview, OS 45502',
     phone: '555-321-9876',
     menu: [
@@ -60,6 +60,22 @@ app.get('/', (req, res) => {
   res.render('home.ejs', {
     RESTAURANT: RESTAURANT
   });
+
 });
+app.get(`/menu`, (req, res) => {
+  res.render(`menu.ejs`, {
+    RESTAURANT: RESTAURANT
+  })
+})
+
+app.get(`/menu/:category`, (req, res) => {
+  res.render(`category.ejs`, {
+    
+  })
+
+})
+
+
+
 
 app.listen(3000);
